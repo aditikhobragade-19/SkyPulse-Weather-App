@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyPulse | Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="weather-app">
+        <header>
+            <div class="logo">🌦️ SkyPulse</div>
+            <p>Your weather, at a glance.</p>
+        </header>
+
+        <section class="search-box">
+            <input
+                type="text"
+                id="cityInput"
+                placeholder="Enter city name..."
+                autocomplete="off"
+            >
+            <button id="searchBtn" onclick="getWeather()">Search</button>
+        </section>
+
+        <p id="message" role="status">Search for a city to see its weather.</p>
+
+        <section id="weatherCard" class="weather-card" hidden>
+            <div class="location" id="cityName"></div>
+            <div class="weather-icon" id="weatherIcon">🌤️</div>
+            <div class="temperature" id="temperature"></div>
+            <div class="description" id="description"></div>
+
+            <div class="details">
+                <div class="detail">
+                    <span>💧 Humidity</span>
+                    <strong id="humidity"></strong>
+                </div>
+                <div class="detail">
+                    <span>💨 Wind</span>
+                    <strong id="wind"></strong>
+                </div>
+                <div class="detail">
+                    <span>🌡️ Feels like</span>
+                    <strong id="feelsLike"></strong>
+                </div>
+                <div class="detail">
+                    <span>🔵 Pressure</span>
+                    <strong id="pressure"></strong>
+                </div>
+            </div>
+        </section> 
+        <section class="recent-section">
+    <h2>Recent Searches</h2>
+    <div id="recentCities" class="recent-cities">
+        <p>Your searched cities will appear here.</p>
+    </div>
+</section>
+        <section id="forecastSection" class="forecast-section" hidden>
+    <h2>5-Day Forecast</h2>
+    <div id="forecastCards" class="forecast-cards"></div>
+</section>
+
+        <footer>SkyPulse Weather App · Powered by OpenWeather</footer>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
